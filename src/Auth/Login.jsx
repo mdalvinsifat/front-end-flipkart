@@ -3,6 +3,8 @@ import React, { useState } from 'react';
 import toast from 'react-hot-toast';
 import { URLAPI } from '../Consent/UrlApi';
 import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { setUser } from '../redux/useSlice';
 
 const Login = () => {
   const [formData, setFormData] = useState({
@@ -11,7 +13,7 @@ const Login = () => {
   });
 
   const navigate  = useNavigate()
-
+  const dispatch = useDispatch()
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
@@ -26,6 +28,7 @@ const Login = () => {
       const res = await axios.post(`${URLAPI}/auth/login`, formData);
       toast.success("Login Successfully");
       navigate("/")
+      dispatch(setUser(res.data.user))
     } catch (error) {
       console.error("Login Error:", error);
       toast.error("Login Failed");

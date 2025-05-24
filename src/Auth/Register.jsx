@@ -3,6 +3,8 @@ import axios from 'axios';
 import { URLAPI } from '../Consent/UrlApi';
 import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
+import { setUser } from '../redux/useSlice';
+import { useDispatch } from 'react-redux';
 
 const Register = () => {
   const [formData, setFormData] = useState({
@@ -13,7 +15,7 @@ const Register = () => {
     gender: '',
     image: null,
   });
-
+const dispatch = useDispatch()
   const navigete = useNavigate()
   const handleChange = (e) => {
     const { name, value, type, files } = e.target;
@@ -46,6 +48,8 @@ const Register = () => {
 
 toast.success(res.data.message)
 navigete("/")
+      dispatch(setUser(res.data.user))
+
 
       console.log(res);
     } catch (error) {
