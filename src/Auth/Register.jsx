@@ -45,8 +45,8 @@ const dispatch = useDispatch()
     "Content-Type": "multipart/form-data",
   },
 });
-
 toast.success(res.data.message)
+        dispatch(setUser(res.data.user))
 navigete("/")
       dispatch(setUser(res.data.user))
 
