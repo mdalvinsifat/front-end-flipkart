@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import toast from 'react-hot-toast';
 import { URLAPI } from '../Consent/UrlApi';
 import { useSelector } from 'react-redux';
-
+import AdminNavber from '../admin/AdminNavber'
 const CreateProduct = () => {
 
   const category = useSelector(store => store.CategoryOffer.category)
@@ -111,7 +111,21 @@ setPreviews({
 
 
   return (
-    <div className="max-w-4xl mx-auto mt-10 px-6 py-8 bg-white shadow-2xl rounded-2xl">
+<div className="flex flex-col md:flex-row min-h-screen bg-gray-100">
+
+
+  <div className="md:w-1/4 w-full">
+    <AdminNavber/>
+ 
+ </div>
+
+
+
+
+
+  <div className="md:w-3/4 w-full overflow-y-auto p-4">
+
+          <div className="max-w-5xl mx-auto bg-white shadow-2xl rounded-2xl p-6">
       <h2 className="text-3xl font-bold text-center mb-8 text-blue-800">Create New Product</h2>
 
       <form className="grid grid-cols-1 md:grid-cols-2 gap-6" onSubmit={AddProduct}>
@@ -268,7 +282,10 @@ setPreviews({
           </button>
         </div>
       </form>
+          </div>
+
     </div>
+ </div>
   );
 };
 

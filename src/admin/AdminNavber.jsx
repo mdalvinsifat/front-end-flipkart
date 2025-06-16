@@ -40,7 +40,7 @@ const AdminNavber = () => {
   return (
     <>
       {/* Mobile Header with Hamburger */}
-      <header className="md:hidden flex items-center justify-between bg-blue-900 text-white p-4 shadow-md">
+<header className="md:hidden flex items-center justify-between  bg-blue-900 text-white p-4 shadow-md">
         <h2 className="text-xl font-bold">Admin Panel</h2>
         <button
           onClick={toggleSidebar}
